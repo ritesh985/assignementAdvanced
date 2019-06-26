@@ -66,7 +66,7 @@ import './PeopleItem.css';
             return(
                 <div>
                     <Col xs={24} sm={24} md={12} lg={8} xl={6}>
-                        <Card style={{ width: 300, margin:'15px auto' } }
+                        <Card style={{ margin:'15px' } }
                             cover={
                             <img
                                 alt="example"
