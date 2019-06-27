@@ -76,8 +76,13 @@ import './PeopleItem.css';
                             />
                             }           
                             actions={[<button style={this.style} onClick={this.toggleState}> <Icon type="heart"   style={{fontSize:'20px', color:'#F50000'}} theme={this.state.theme}/></button>,
+<<<<<<< HEAD
                             <button style={this.style}  onClick={this.showModal} ><Icon  style={{fontSize:'18px'}} type="edit" /></button>, 
                             <button style={this.style} onClick={()=>this.props.removeItem(this.props.person.id)} ><Icon type="delete"  style={{fontSize:'18px'}}  theme="filled" /> </button>]}
+=======
+                            <button style={this.style}  onClick={this.showModal} ><Icon type="edit" style={{fontSize:'18px'}} /></button>, 
+                            <button style={this.style} onClick={()=>this.props.removeItem(this.props.person)} ><Icon type="delete" style={{fontSize:'18px'}} theme="filled" /> </button>]}
+>>>>>>> f7c426f889a329a8973ebde739dccc8a3d2e12ea
                             >
                         <div>
                             <h3>{this.props.person.name}</h3>
