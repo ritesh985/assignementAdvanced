@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PeopleList from './PeopleList';
+import PeopleItem from './PeopleItem';
 import Loader from './Loader'
 import './App.css';
 
@@ -19,13 +20,31 @@ class App extends Component {
 
     removeItem= (item)=>{
       const newList = this.state.data.filter(test =>{
-        return test !== item;
+        return test.id !== item;
       })
       this.setState({
         data: [...newList]
       })
     }
+    handleDataEdit = (editedItem,editId)=>{
+      //console.log(editedItem);
+      //console.log(editId);
+      const editList = this.state.data.filter(item =>{
+        if (item.id === editId){
+          item.name = editedItem.name;
+          item.email = editedItem.email;
+          item.phone = editedItem.phone;
+          item.website = editedItem.website;
 
+          
+        }
+        return item;
+      })
+      //console.log(editList);
+      this.setState({
+        data: [...editList]
+      })
+    }
     
 
   render() {
@@ -37,7 +56,31 @@ class App extends Component {
   }
     return (
       <div>
-        <PeopleList people = {this.state.data} removeItem={this.removeItem} changeName={this.changeName} />
+        {/* <PeopleList people = {this.state.data} removeItem={this.removeItem} handleDataEdit = {this.handleDataEdit} /> */}
+
+        {
+          this.state.data.map( person =>{
+        
+            return(
+                <PeopleItem
+                    key={person.id} 
+                    person = {person}
+                    removeItem={this.removeItem}
+                    handleDataEdit = {this.handleDataEdit}
+                />
+                
+            );
+        })
+        }
+        {
+          this.state.data.map(r =>{
+          return(
+            <div>
+            <p key={r.id} >{r.name}</p>
+            
+            </div>
+          );
+        })}
       </div>
     );
   }

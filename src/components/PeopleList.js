@@ -15,7 +15,7 @@ class PeopleList extends React.Component{
                 key={person.id} 
                 person = {person}
                 removeItem={this.props.removeItem}
-                changeName = {this.props.changeName}
+                handleDataEdit = {this.props.handleDataEdit}
             />
             
         );
